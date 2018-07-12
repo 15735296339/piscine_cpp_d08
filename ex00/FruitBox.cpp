@@ -1,88 +1,63 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
 #include "FruitBox.h"
 
-FruitBox::FruitBox(int size) : _size(size), _nb(0), list(NULL)
+FruitBox::FruitBox(int _size) :  list(NULL), _size(_size), _number(0)
 {
+	
 }
 
 FruitBox::~FruitBox()
 {
+	
 }
 
-int FruitBox::nbFruits() const
+int	FruitBox::nbFruits()
 {
-	return _nb;
+	return (_number);
 }
 
 bool FruitBox::putFruit(Fruit *f)
 {
-	FruitNode	*tmp;
-	FruitNode	*elem;
-	int nb(1);
-	//return 0;
-	if (nb > _size)
-		return (false);
-	if (list == NULL)
+	if (f != NULL && _number < _size)
 	{
-		list = new FruitNode;
-		list->fruit = f;
-		list->next = NULL;
-		_nb++;
+		FruitNode *current = list;
+		FruitNode *node = new FruitNode();
+		node->content = f;
+		if (!list)
+			list = node;
+		else
+		{
+			if (current->content == f)
+				return (false);
+			while (current->next)
+			{
+				if (current->content == f)
+					return (false);
+				current = current->next;
+			}
+			current->next = node;
+		}
+		_number++;
 		return (true);
 	}
-	tmp = list;
-	while (tmp->next != NULL)
-	{
-		if ((tmp->fruit == f) || (nb >= _size))
-			return (false);
-		nb++;
-		tmp = tmp->next;
-	}
-	if (nb >= _size)
-		return (false);
-	if (tmp->fruit == f)
-		return (false);
-	elem = new FruitNode;
-	elem->fruit = f;
-	elem->next = NULL;
-	tmp->next = elem;
-	_nb++;
-	return (true);
+	return (false);
 }
 
 Fruit *FruitBox::pickFruit()
 {
-	FruitNode	*tmp;
-
-	if (list == NULL)
+	if (!list)
 		return (NULL);
-	tmp = list;
+	Fruit *temp = list->content;
 	list = list->next;
-	_nb--;
-	return (tmp->fruit);
+	_number--;
+	return (temp);
 }
 
-bool pickAFruit(FruitBox &c)
+FruitNode *FruitBox::head() const
 {
-	Fruit	const	*f;
-
-	f = c.pickFruit();
-	if (!f)
-	{
-		std::cout << "Picking out a fruit ... There is no fruits !" << std::endl;
-		return (false);
-	}
-	std::cout << "Picking out a fruit ... it's a " << f->getName() << " ! " << "It contains " << f->getVitamins() << " vitamins !" << std::endl;
-	delete f;
-	return (true);
+	return (list);
 }
 
-
-FruitNode	*FruitBox::head() const
+int	FruitBox::getSize()
 {
-	return list;
-}/*Watson **/
-/* Watson */
-/* My own copyright */
+	return (_size);
+}

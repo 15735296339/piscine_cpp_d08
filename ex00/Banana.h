@@ -1,21 +1,17 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
-#ifndef BANANA_H_
-#define BANANA_H_
+#ifndef _BANANA_H_
+#define _BANANA_H_
 
+#include <string>
 #include "Fruit.h"
 
 class Banana : public Fruit
 {
-	//private:
 	public:
 		Banana();
 		~Banana();
-		int getVitamins() const;
+		
 		std::string getName() const;
+		int getVitamins() const;
 };
 
-#endif /* Watson */
-/* Watson */
-/* My own copyright */
+#endif

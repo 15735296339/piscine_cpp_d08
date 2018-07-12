@@ -1,35 +1,21 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
 #include "Fruit.h"
 
-//W
-Fruit::Fruit()
+Fruit::Fruit(std::string const &name, int const vitamins) : _name(name), _vitamins(vitamins)
 {
+
 }
 
-
-//A
 Fruit::~Fruit()
 {
+	
 }
 
-
-//T
-int Fruit::getVitamins() const
-{
-	//return 0;
-	return _vitamins;
-}
-
-
-//S
 std::string Fruit::getName() const
 {
-	
-	//O
-	//N
-	return _name;
-}/*Watson **/
-/* Watson */
-/* My own copyright */
+	return (_name);
+}
+
+int	Fruit::getVitamins() const
+{
+	return (_vitamins);
+}

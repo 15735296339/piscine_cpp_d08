@@ -1,34 +1,21 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
 #include "Banana.h"
 
-//W
-Banana::Banana() : Fruit()
+Banana::Banana() : Fruit("banana", 5)
 {
-	_vitamins = 5;
-	_name = "banana";
+
 }
 
-//A
 Banana::~Banana()
 {
+	
 }
 
+std::string Banana::getName() const
+{
+	return (_name);
+}
 
-//T
 int	Banana::getVitamins() const
 {
-	return _vitamins;
+	return (_vitamins);
 }
-
-//S
-std::string	Banana::getName() const
-{
-	
-	//O
-	return _name;
-	//N
-}/* Watson**/
-/* Watson */
-/* My own copyright */

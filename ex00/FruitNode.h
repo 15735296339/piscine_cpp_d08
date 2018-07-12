@@ -1,18 +1,14 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
-#ifndef FRUINODE_H_
-# define FRUINODE_H_
+#ifndef _FRUITNODE_H_
+#define _FRUITNODE_H_
 
+#include <string>
 #include "Fruit.h"
 
-struct FruitNode
+class FruitNode
 {
-	//Fruit *
-	Fruit *fruit;
-	FruitNode *next;
+	public:
+		Fruit *content;
+		FruitNode *next;
 };
 
-#endif /*Watson **/
-/* Watson */
-/* My own copyright */
+#endif

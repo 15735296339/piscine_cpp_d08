@@ -1,27 +1,26 @@
-/* Watson */
-/* This is my copyright. Please don not copy it */
-/* Please don not copy it */
 #include "Lemon.h"
 
-Lemon::Lemon() : Fruit()
+Lemon::Lemon() : Fruit("lemon", 3)
 {
-	_vitamins = 3;
-	_name = "lemon";
+	
+}
+
+Lemon::Lemon(std::string const &name, int const vitamins) : Fruit(name, vitamins)
+{
+	
 }
 
 Lemon::~Lemon()
 {
+	
+}
+
+std::string Lemon::getName() const
+{
+	return (_name);
 }
 
 int	Lemon::getVitamins() const
 {
-	//Return
-	return _vitamins;
+	return (_vitamins);
 }
-
-std::string	Lemon::getName() const
-{
-	return _name;
-}
-/* Watson */
-/* My own copyright */
